@@ -16,7 +16,26 @@ const getStudentByID = (req, res) => {
     })
 }
 
+//add Students
+const addStudent = (req, res) => {
+    const { user_id, username, password, email, created_on } = req.body;
+
+    //check if email exists
+    pool.query(queries.checkEmailExists, [email], (error, results) => {
+        if (results.rows.length) {
+            res.send("Email already exists.");
+        }
+    });
+
+    //add student to Database
+    pool.query(queries.addStudent, [user_id, username, password, email, created_on] , (error, results) => {
+        if(error) throw error;
+        res.status(201).send("Student Created Successfully");
+    })
+}
+
 module.exports = {
     getStudents,
     getStudentByID,
+    addStudent,
 };
