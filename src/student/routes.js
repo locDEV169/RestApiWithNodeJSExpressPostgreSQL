@@ -9,4 +9,7 @@ router.get('/:id', controller.getStudentByID);
 //api post add students
 router.post('/', controller.addStudent);
 
+//api delete student
+router.delete('/:id', controller.removeStudent)
+
 module.exports = router;
