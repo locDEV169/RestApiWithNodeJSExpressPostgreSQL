@@ -13,4 +13,7 @@ app.get("/",(req,res) => {
 app.use('/api/users',UserRouters);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT,() => console.log(`app listening on port ${port}`))
+const server = app.listen(PORT,() => {
+    const port = server.address().port;
+    console.log(`app listening on port ${port}`)
+})
