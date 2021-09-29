@@ -50,9 +50,19 @@ const removeUser = (req, res) => {
     })
 }
 
+const migrateDb = (req, res) => {
+    try {
+        pool.query(queries.migrateDb)
+    } catch (error) {
+        console.log(error)
+    }
+   
+}
+
 module.exports = {
     getUsers,
     getUserByID,
     addUser,
     removeUser,
+    migrateDb,
 };
