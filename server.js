@@ -1,5 +1,5 @@
 const express = require('express')
-const studentRouters = require('./src/student/routes');
+const UserRouters = require('./src/user/routes');
 
 const app = express();
 const port = 3000;
@@ -7,9 +7,10 @@ const port = 3000;
 app.use(express.json());
 
 app.get("/",(req,res) => {
-    res.send("Hello world !!")
+    res.send("Hello world <3")
 })
 
-app.use('/api/v1/students',studentRouters);
+app.use('/api/users',UserRouters);
 
-app.listen(port,() => console.log(`app listening on port ${port}`))
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,() => console.log(`app listening on port ${port}`))
