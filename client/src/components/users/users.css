@@ -1,0 +1,20 @@
+.userList{
+    float: right;
+}
+
+.table.table-condensed thead tr {
+    /* border-bottom: 5px solid bisque; */
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+.table.table-condensed tr td{
+    border-right: 1px solid black;
+}
+.table.table-condensed tr td:last-child{
+    border-right: 0px;
+}
+.btn{
+    background-color: bisque;
+}
+.btn:hover{
+    background-color: chartreuse;
+}
